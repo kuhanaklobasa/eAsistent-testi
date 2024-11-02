@@ -1,43 +1,5 @@
 import datetime as dt
-"""
-Ta modul zagotavlja razrede in funkcije za upravljanje in filtriranje urnikov testov.
-Razredi:
-    Test:
-        Razred, ki predstavlja test z atributi, kot so id, predmet, opis, datum, šolska ura, ime tipa, datetime in timestamp.
-        Metode:
-            from_dict(cls, data): Razredna metoda za ustvarjanje primerka Test iz slovarja.
-            __init__(self, id, predmet, opis, datum, solska_ura, tip_name, datetime, timestamp): Inicializira primerek Test.
-            __repr__(self): Vrne nizovno predstavitev primerka Test.
-    Filtri:
-        Pomožni razred za filtriranje testov na podlagi različnih meril.
-        Metode:
-            __init__(self, redovalnica): Inicializira primerek Filtri z instanco Redovalnica.
-            datum_pred(self, datum): Filtrira teste pred določenim datumom.
-            datum_po(self, datum): Filtrira teste po določenem datumu.
-            ime_predmeta(self, predmet): Filtrira teste po imenu predmeta.
-    Redovalnica:
-        Razred, ki predstavlja zbirko testov z metodami za dodajanje, odstranjevanje in filtriranje testov.
-        Metode:
-            __init__(self, PrihodnjiTesti): Inicializira primerek Redovalnica z seznamom prihodnjih testov.
-            _posodobi(self, result): Posodobi seznam testov.
-            dodaj(self, test): Doda test v zbirko.
-            odstrani(self, test): Odstrani test iz zbirke.
-            filtriraj(self, attr, filter_func, value): Filtrira teste na podlagi določenega atributa in funkcije filtra.
-            __repr__(self): Vrne nizovno predstavitev primerka Redovalnica.
-    TestiClient:
-        Odjemalski razred za interakcijo z eAsistent API-jem in upravljanje podatkov o testih.
-        Metode:
-            __init__(self, uporabnik, geslo): Inicializira primerek TestiClient z uporabniškimi poverilnicami.
-            _initialize_client(self): Inicializira ali ponovno inicializira odjemalca s svežimi poverilnicami.
-            _check_token_expired(self): Preveri, ali je žeton blizu poteka.
-            _refresh_if_needed(self): Osveži žeton, če je blizu poteka.
-            auto_refresh(func): Dekorator za samodejno osvežitev žetona pred klici metod.
-            _convert_to_datetime_and_timestamp(self, class_hours_and_dates, schedule): Pretvori šolske ure in datume v datetime in timestamp.
-            _pridobiPrihodnjeTeste(self): Pridobi prihodnje teste iz eAsistent API-ja.
-            _pridobiTestnePodatke(self): Pridobi in pretvori podatke o prihodnjih testih v primerke Test.
-            izdelajRedovalnico(self): Ustvari primerek Redovalnica s podatki o prihodnjih testih.
-"""
-import api
+from . import api
 import time
 from functools import wraps
 import typing
